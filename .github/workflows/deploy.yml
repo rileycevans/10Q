@@ -1,9 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy Vite App to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Change this if your main branch has a different name
+      - main
+
+permissions:
+  contents: write  # Grants permission to push changes
 
 jobs:
   deploy:
@@ -25,4 +28,5 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
 
